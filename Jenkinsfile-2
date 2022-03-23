@@ -5,6 +5,7 @@ pipeline {
       steps {
         sh 'pack version'
         sh 'pack report'
+        sh 'env | sort'
       }
     }
     stage('build') {

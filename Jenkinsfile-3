@@ -1,0 +1,17 @@
+pipeline {
+  agent any
+  stages {
+    stage('information') {
+      steps {
+        sh 'pack version'
+        sh 'pack report'
+        sh 'env | sort'
+      }
+    }
+    stage('build') {
+      steps {
+        sh 'pack build darinpope/spring-boot-hello-world:${GIT_COMMIT:0:7} --path . --builder paketobuildpacks/builder:tiny'
+      }
+    }
+  }
+}

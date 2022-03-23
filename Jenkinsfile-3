@@ -10,7 +10,7 @@ pipeline {
     }
     stage('build') {
       steps {
-        sh 'pack build darinpope/spring-boot-hello-world:${GIT_COMMIT:0:7} --path . --builder paketobuildpacks/builder:tiny'
+        sh 'pack build darinpope/spring-boot-hello-world:${GIT_COMMIT:0:7} --path . --builder paketobuildpacks/builder:base'
       }
     }
   }

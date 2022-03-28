@@ -13,7 +13,7 @@ pipeline {
     }
     stage('login') {
       steps {
-        sh 'echo $DH_CREDS_PSW | sudo docker login --username=$DH_CREDS_USR --password-stdin'
+        sh 'echo $DH_CREDS_PSW | docker login --username=$DH_CREDS_USR --password-stdin'
       }
     }
     stage('build') {

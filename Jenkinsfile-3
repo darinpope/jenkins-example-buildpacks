@@ -18,8 +18,13 @@ pipeline {
     }
     stage('build') {
       steps {
-        sh 'pack build darinpope/spring-boot-hello-world:${GIT_COMMIT:0:7} --path . --builder gcr.io/buildpacks/builder:v1 --publish'
+        sh 'pack build docker.io/darinpope/spring-boot-hello-world:${GIT_COMMIT:0:7} --path . --builder gcr.io/buildpacks/builder:v1 --publish'
       }
+    }
+  }
+  post {
+    always {
+      sh 'docker logout'
     }
   }
 }
